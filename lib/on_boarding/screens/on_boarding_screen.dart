@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sephore/on_boarding/widgets/language_switcher.dart';
 import 'package:sephore/on_boarding/widgets/on_boarding_carousel.dart';
 import 'package:sephore/on_boarding/widgets/on_boarding_indicator.dart';
 
@@ -30,9 +31,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     color: Color(0xFF2F82FF),
                   ),
                 ),
-                Switch(
-                  value: true,
-                  onChanged: (v) {},
+                LanguageSwitcher(
+                  isID: (isId) {
+                    print(isId ? 'Bahasa' : 'English');
+                  },
                 ),
               ],
             ),
