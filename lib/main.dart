@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sephore/on_boarding/on_boarding.dart';
+import 'package:sephore/register/register.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const OnBoardingScreen(),
+      home: const OtpScreen(),
     );
   }
 }
