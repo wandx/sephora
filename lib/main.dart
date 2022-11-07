@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sephore/on_boarding/on_boarding.dart';
 import 'package:sephore/register/register.dart';
+import 'package:sephore/register/screens/term_and_condition_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const OtpScreen(),
+      home: const TermAndConditionScreen(),
     );
   }
 }

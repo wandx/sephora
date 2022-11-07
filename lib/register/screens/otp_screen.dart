@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sephore/register/widgets/otp_digit_container.dart';
 import 'package:sephore/register/widgets/otp_keyboard.dart';
+import 'package:sephore/register/widgets/sephora_app_bar.dart';
 
 class OtpScreen extends StatefulWidget {
   const OtpScreen({Key? key}) : super(key: key);
@@ -18,42 +19,7 @@ class _OtpScreenState extends State<OtpScreen> {
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
-              Stack(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Container(
-                      width: 32,
-                      height: 32,
-                      decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Icon(
-                        Icons.arrow_back,
-                        size: 18,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: Container(
-                      height: 32,
-                      alignment: Alignment.center,
-                      child: Text(
-                        'OTP',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.blue,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              SephoraAppBar(title: 'OTP'),
               SizedBox(height: 40),
               Image.asset(
                 'assets/mobile.png',
