@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sephore/home/home.dart';
 import 'package:sephore/on_boarding/on_boarding.dart';
 import 'package:sephore/register/register.dart';
 
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const OtpScreen(),
+      home: const HomeScreen(),
     );
   }
 }
