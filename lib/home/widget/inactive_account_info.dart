@@ -6,16 +6,16 @@ class InactiveAccountInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      elevation: 8,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      elevation: 3,
       child: Container(
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         child: Row(
           children: [
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: const [
                   Text(
                     'Akun anda belum di aktivasi',
                     style: TextStyle(
@@ -40,9 +40,9 @@ class InactiveAccountInfo extends StatelessWidget {
               height: 28,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                color: Color(0xFFF3F7FD),
+                color: const Color(0xFFF3F7FD),
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.arrow_forward_ios,
                 size: 15,
                 color: Colors.blue,
