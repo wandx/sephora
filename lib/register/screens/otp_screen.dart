@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:sephore/register/widgets/otp_digit_container.dart';
 import 'package:sephore/register/widgets/otp_keyboard.dart';
@@ -10,6 +12,34 @@ class OtpScreen extends StatefulWidget {
 }
 
 class _OtpScreenState extends State<OtpScreen> {
+  final _otpLength = 6;
+  var _otpValue = '';
+  Timer? _timer;
+
+  late int _sisaWaktu;
+  final _totalSecond = (4 * 60) + 30;
+  // final _totalSecond = 500;
+
+
+
+  @override
+  void initState() {
+    _sisaWaktu = _totalSecond;
+    super.initState();
+    _timer = Timer.periodic(
+      const Duration(seconds: 1),
+      (timer) {
+        setState(() {
+          _sisaWaktu--;
+        });
+
+        if(_sisaWaktu == 0){
+          _timer!.cancel();
+        }
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -29,7 +59,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         color: Colors.blue,
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: Icon(
+                      child: const Icon(
                         Icons.arrow_back,
                         size: 18,
                         color: Colors.white,
@@ -41,7 +71,7 @@ class _OtpScreenState extends State<OtpScreen> {
                     child: Container(
                       height: 32,
                       alignment: Alignment.center,
-                      child: Text(
+                      child: const Text(
                         'OTP',
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -54,22 +84,22 @@ class _OtpScreenState extends State<OtpScreen> {
                   ),
                 ],
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               Image.asset(
                 'assets/mobile.png',
                 width: 70,
               ),
-              SizedBox(height: 30),
-              Text(
-                '04 : 30',
+              const SizedBox(height: 30),
+               Text(
+                formatTime(_sisaWaktu),
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              SizedBox(height: 30),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
+              const SizedBox(height: 30),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Text(
                   'Masukkan 6 digit kode'
                   ' OTP yang telah dikirimkan'
@@ -78,21 +108,62 @@ class _OtpScreenState extends State<OtpScreen> {
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
-
                   ),
                   textAlign: TextAlign.center,
                 ),
               ),
-              SizedBox(height: 30),
-              OtpDigitContainer(),
-              SizedBox(height: 30),
-              TextButton(onPressed: (){}, child: Text('Kirim Ulang'),),
-              SizedBox(height: 30),
-              Expanded(child: OtpKeyboard()),
+              const SizedBox(height: 30),
+              OtpDigitContainer(otpValue: _otpValue, optLength: _otpLength),
+              const SizedBox(height: 30),
+              TextButton(
+                onPressed: () {},
+                child: const Text('Kirim Ulang'),
+              ),
+              const SizedBox(height: 30),
+              Expanded(
+                child: OtpKeyboard(
+                  onChanged: (String value) {
+                    if (value == 'hapus') {
+                      _deleteLastChar();
+                    }
+                    if (_otpValue.length < _otpLength) {
+                      if (value != 'hapus') {
+                        setState(() {
+                          _otpValue += value;
+                        });
+                      }
+                    }
+
+                    print(_otpValue);
+                  },
+                ),
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void _deleteLastChar() {
+    print('Semua karakter: $_otpValue');
+    print('Karakter terakhir sekarang: ${_otpValue.split('').last}');
+    if (_otpValue.isNotEmpty) {
+      final split = _otpValue.split('');
+      split.removeLast();
+      final join = split.join('');
+      print('Nilai setelah di olah: $join');
+      setState(() {
+        _otpValue = join;
+      });
+    }
+  }
+
+  String formatTime(int seconds) {
+    final duration = Duration(seconds: _sisaWaktu).toString();
+    final firstSplit = duration.split('.').first;
+    final removeFirstDigit = firstSplit.split(':')..removeAt(0);
+    final cleanTimer = removeFirstDigit.join(':');
+    return cleanTimer;
   }
 }
