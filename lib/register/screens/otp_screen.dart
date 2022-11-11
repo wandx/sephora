@@ -17,10 +17,9 @@ class _OtpScreenState extends State<OtpScreen> {
   Timer? _timer;
 
   late int _sisaWaktu;
-  final _totalSecond = (4 * 60) + 30;
-  // final _totalSecond = 500;
+  // final _totalSecond = (4 * 60) + 30;
 
-
+  final _totalSecond = 5;
 
   @override
   void initState() {
@@ -33,7 +32,14 @@ class _OtpScreenState extends State<OtpScreen> {
           _sisaWaktu--;
         });
 
-        if(_sisaWaktu == 0){
+        if (_sisaWaktu == 0) {
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              title: Text('end'),
+              content: Text('Timer habis'),
+            ),
+          );
           _timer!.cancel();
         }
       },
@@ -90,7 +96,7 @@ class _OtpScreenState extends State<OtpScreen> {
                 width: 70,
               ),
               const SizedBox(height: 30),
-               Text(
+              Text(
                 formatTime(_sisaWaktu),
                 style: TextStyle(
                   fontSize: 20,
