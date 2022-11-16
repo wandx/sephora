@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sephore/app_theme.dart';
 import 'package:sephore/on_boarding/widgets/language_switcher.dart';
 import 'package:sephore/on_boarding/widgets/on_boarding_carousel.dart';
 import 'package:sephore/on_boarding/widgets/on_boarding_indicator.dart';
@@ -15,9 +16,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF3F7FD),
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(AppTheme.mainPadding),
         child: Column(
           children: [
             Row(
@@ -87,6 +87,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               ),
             ),
           ],
+          crossAxisAlignment: CrossAxisAlignment.stretch,
         ),
       ),
     );

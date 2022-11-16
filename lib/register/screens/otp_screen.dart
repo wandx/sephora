@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sephore/app_theme.dart';
 import 'package:sephore/register/widgets/otp_digit_container.dart';
 import 'package:sephore/register/widgets/otp_keyboard.dart';
 
@@ -15,7 +16,7 @@ class _OtpScreenState extends State<OtpScreen> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(AppTheme.mainPadding),
           child: Column(
             children: [
               Stack(
@@ -78,7 +79,6 @@ class _OtpScreenState extends State<OtpScreen> {
                   style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
-
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -86,7 +86,10 @@ class _OtpScreenState extends State<OtpScreen> {
               SizedBox(height: 30),
               OtpDigitContainer(),
               SizedBox(height: 30),
-              TextButton(onPressed: (){}, child: Text('Kirim Ulang'),),
+              TextButton(
+                onPressed: () {},
+                child: Text('Kirim Ulang'),
+              ),
               SizedBox(height: 30),
               Expanded(child: OtpKeyboard()),
             ],
