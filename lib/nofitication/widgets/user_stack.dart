@@ -20,7 +20,7 @@ class _UserStackState extends State<UserStack>
     _controller = AnimationController(
       vsync: this,
       duration: Duration(
-        milliseconds: 300,
+        milliseconds: 600,
       ),
     );
 
@@ -61,7 +61,7 @@ class _UserStackState extends State<UserStack>
           final index = e.key;
           final value = e.value;
           return Positioned(
-            left: _moveRight.value * (users.length - index) - movementLength,
+            left: _moveRightValue(index),
             child: UserStackItem(
               image: AssetImage(value['image']),
               active: index == users.length - 1,
@@ -70,5 +70,10 @@ class _UserStackState extends State<UserStack>
         },
       ).toList(),
     );
+  }
+
+  double _moveRightValue(int index) {
+    final x = _moveRight.value * (users.length - index) - movementLength;
+    return x < 0 ? 0 : x;
   }
 }
