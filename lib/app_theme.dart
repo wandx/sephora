@@ -6,6 +6,7 @@ class AppTheme {
   static const background = Color(0xFFF3F7FD);
   static const inputBorderColor = Color(0xFF98C1FF);
   static const inputBorderErrorColor = Colors.red;
+  static const gray = Color(0xFF97A5C9);
 
   /// Button
   static const buttonRadius = 10.0;

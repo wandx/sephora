@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sephore/app_theme.dart';
 import 'package:sephore/dummy_screen.dart';
 import 'package:sephore/home/home.dart';
+import 'package:sephore/nofitication/view/notification_screen.dart';
 import 'package:sephore/on_boarding/on_boarding.dart';
 import 'package:sephore/register/register.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.light,
-      home: const OnBoardingScreen(),
+      home: const NotificationScreen(),
     );
   }
 }
