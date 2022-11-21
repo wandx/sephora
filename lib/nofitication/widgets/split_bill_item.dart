@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sephore/app_theme.dart';
+import 'package:sephore/nofitication/models/user_list.dart';
 import 'package:sephore/nofitication/widgets/user_stack.dart';
 
 class SplitBillItem extends StatelessWidget {
-  const SplitBillItem({super.key});
+  const SplitBillItem({super.key, this.users = const []});
+
+  final List<UserList> users;
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +42,8 @@ class SplitBillItem extends StatelessWidget {
             children: [
               Container(
                 height: 50,
-                width: 200,
-                child: UserStack(),
+                width: 150,
+                child: UserStack(users: users),
               ),
               Expanded(
                 child: Column(

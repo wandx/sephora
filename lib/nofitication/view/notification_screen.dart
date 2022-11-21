@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sephore/app_theme.dart';
+import 'package:sephore/nofitication/models/user_list.dart';
 import 'package:sephore/nofitication/widgets/pill_item.dart';
 import 'package:sephore/nofitication/widgets/split_bill_item.dart';
 
@@ -163,7 +164,71 @@ class _NotificationScreenState extends State<NotificationScreen> {
                     Container(
                       child: Column(
                         children: [
-                          SplitBillItem(),
+                          SplitBillItem(
+                            users: [
+                              UserList(
+                                AssetImage('assets/user.jpeg'),
+                                'User A',
+                              ),
+                              UserList(
+                                AssetImage('assets/user.jpeg'),
+                                'User B',
+                              ),
+                              UserList(
+                                AssetImage('assets/user.jpeg'),
+                                'User C',
+                              ),
+                              UserList(
+                                AssetImage('assets/user.jpeg'),
+                                'User D',
+                              ),
+                              UserList(
+                                AssetImage('assets/user.jpeg'),
+                                'User E',
+                              ),
+                              UserList(
+                                AssetImage('assets/user.jpeg'),
+                                'User F',
+                              ),
+                              UserList(
+                                AssetImage('assets/user.jpeg'),
+                                'User G',
+                              ),
+                              UserList(
+                                AssetImage('assets/user.jpeg'),
+                                'User H',
+                              ),
+                              UserList(
+                                AssetImage('assets/user.jpeg'),
+                                'User I',
+                              ),
+                              UserList(
+                                AssetImage('assets/user.jpeg'),
+                                'User J',
+                              ),
+                            ],
+                          ),
+                          SplitBillItem(
+                            users: [
+                              UserList(
+                                AssetImage('assets/user.jpeg'),
+                                'User A',
+                              ),
+                              UserList(
+                                null,
+                                'User B',
+                              ),
+                            ],
+                          ),
+                          SplitBillItem(
+                            users: List.generate(
+                              50,
+                              (index) => UserList(
+                                AssetImage('assets/user.jpeg'),
+                                'User $index',
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
